@@ -1,0 +1,258 @@
+object frmDrawingMaintain: TfrmDrawingMaintain
+  Left = 123
+  Top = 169
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Drawings Maintenance'
+  ClientHeight = 614
+  ClientWidth = 901
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 16
+  object Panel1: TPanel
+    Left = 0
+    Top = 51
+    Width = 901
+    Height = 81
+    Align = alTop
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 8
+      Top = 16
+      Width = 50
+      Height = 16
+      Caption = 'Project#'
+      FocusControl = DBEdit1
+    end
+    object Label2: TLabel
+      Left = 320
+      Top = 16
+      Width = 51
+      Height = 16
+      Caption = 'Architect'
+      FocusControl = DBEdit2
+    end
+    object Label3: TLabel
+      Left = 8
+      Top = 48
+      Width = 50
+      Height = 16
+      Caption = 'Hospital'
+      FocusControl = DBLookupComboBox1
+    end
+    object Label4: TLabel
+      Left = 320
+      Top = 48
+      Width = 80
+      Height = 16
+      Caption = 'Facility Proj.#'
+      FocusControl = DBEdit2
+    end
+    object DBEdit1: TDBEdit
+      Left = 64
+      Top = 8
+      Width = 241
+      Height = 24
+      DataField = 'ProjectNumber'
+      DataSource = dmDrawingLoc.dsDrawingMaster
+      TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 408
+      Top = 8
+      Width = 289
+      Height = 24
+      DataField = 'Designer'
+      DataSource = dmDrawingLoc.dsDrawingMaster
+      TabOrder = 1
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 64
+      Top = 40
+      Width = 241
+      Height = 24
+      DataField = 'HospitalName'
+      DataSource = dmDrawingLoc.dsDrawingMaster
+      TabOrder = 2
+    end
+    object DBEdit3: TDBEdit
+      Left = 408
+      Top = 40
+      Width = 289
+      Height = 24
+      DataField = 'FacilityProjectNumber'
+      DataSource = dmDrawingLoc.dsDrawingMaster
+      TabOrder = 3
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 132
+    Width = 901
+    Height = 420
+    Align = alClient
+    TabOrder = 1
+    object DBGrid1: TDBGrid
+      Left = 1
+      Top = 1
+      Width = 899
+      Height = 418
+      Align = alClient
+      DataSource = dmDrawingLoc.dsDrawingDetail
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'SheetNumber'
+          Title.Caption = 'Sheet#'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'SheetTitle'
+          Title.Caption = 'Sheet Title'
+          Width = 64
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'IssuedDate'
+          Title.Caption = 'Issued Date'
+          Width = 64
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'IssuedFor'
+          Title.Caption = 'Issued For'
+          Width = 64
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'FileCabinet'
+          Title.Caption = 'File Cabinet'
+          Width = 64
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Drawer'
+          Width = 64
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'AsBuild'
+          Title.Caption = 'As Build'
+          Width = 64
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'CheckedOut'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          Title.Caption = 'Checked Out'
+          Width = 64
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'BluePrint'
+          Title.Caption = 'Blue Print'
+          Width = 64
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'BuildingName'
+          Title.Caption = 'Building'
+          Width = 64
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PlanType'
+          Title.Caption = 'Plan Type'
+          Width = 64
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'FileCabinetLocation'
+          Title.Caption = 'File Cabinet Location'
+          Width = 64
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DrawingType'
+          Title.Caption = 'Drawing Type'
+          Width = 64
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'ImageLocation'
+          Visible = True
+        end>
+    end
+  end
+  object Panel5: TPanel
+    Left = 0
+    Top = 0
+    Width = 901
+    Height = 51
+    Align = alTop
+    TabOrder = 2
+    object DBNavigator1: TDBNavigator
+      Left = 1
+      Top = 1
+      Width = 899
+      Height = 49
+      DataSource = dmDrawingLoc.dsDrawingDetail
+      VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
+      Align = alClient
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      OnClick = DBNavigator1Click
+    end
+  end
+  object Panel4: TPanel
+    Left = 0
+    Top = 552
+    Width = 901
+    Height = 62
+    Align = alBottom
+    TabOrder = 3
+    object bbCancel: TBitBtn
+      Left = 784
+      Top = 16
+      Width = 75
+      Height = 33
+      Caption = 'Exit'
+      TabOrder = 0
+      OnClick = bbCancelClick
+      Kind = bkCancel
+    end
+  end
+end

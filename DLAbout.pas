@@ -1,0 +1,54 @@
+unit DLAbout;
+
+interface
+
+uses Windows, SysUtils, Classes, Graphics, Forms, Controls, StdCtrls,
+  Buttons, ExtCtrls, CNVUtility, jpeg;
+
+type
+  TfrmAboutBox = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    ProductName: TLabel;
+    Version: TLabel;
+    Panel3: TPanel;
+    Image1: TImage;
+    bbOK: TBitBtn;
+    procedure bbOKClick(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+ end;
+
+ var
+  frmAboutBox: TfrmAboutBox;
+
+implementation
+
+uses DLReleaseNotes, DLLogin;
+
+{$R *.DFM}
+
+
+procedure TfrmAboutBox.bbOKClick(Sender: TObject);
+begin
+   Close;
+end;
+
+procedure TfrmAboutBox.Image1Click(Sender: TObject);
+begin
+   if checkClassExistence(Application, 'TfrmReleaseNotes') = False then
+   begin
+      Application.CreateForm(TfrmReleaseNotes, frmReleaseNotes);
+   end;
+
+   if frmLogin.useradmin = True Then
+      frmReleaseNotes.Showmodal;
+end;
+
+procedure TfrmAboutBox.FormShow(Sender: TObject);
+begin
+   frmAboutBox.Version.Caption := frmAboutBox.Version.Caption + ' ' + frmLogin.glbVersion;
+end;
+
+end.
+

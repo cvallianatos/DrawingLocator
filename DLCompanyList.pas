@@ -1,0 +1,93 @@
+unit DLCompanyList;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  DBCtrls, StdCtrls, Buttons, Grids, DBGrids, ExtCtrls, ToolWin, ComCtrls, CNVUtility;
+
+type
+  TfrmCompanyList = class(TForm)
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    Panel1: TPanel;
+    bbCancel: TBitBtn;
+    ToolBar1: TToolBar;
+    bbFirst: TBitBtn;
+    bbPrevious: TBitBtn;
+    bbNext: TBitBtn;
+    bbLast: TBitBtn;
+    bbAdd: TBitBtn;
+    bbDelete: TBitBtn;
+    bbDetails: TBitBtn;
+    procedure bbCancelClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure bbFirstClick(Sender: TObject);
+    procedure bbAddClick(Sender: TObject);
+    procedure bbPreviousClick(Sender: TObject);
+    procedure bbNextClick(Sender: TObject);
+    procedure bbLastClick(Sender: TObject);
+    procedure bbDeleteClick(Sender: TObject);
+    procedure bbDetailsClick(Sender: TObject);
+  end;
+
+var
+  frmCompanyList: TfrmCompanyList;
+
+implementation
+
+uses DLDrawingLocData, DLCompany, DLLogin;
+
+{$R *.DFM}
+
+procedure TfrmCompanyList.bbCancelClick(Sender: TObject);
+begin
+   Close;
+end;
+
+procedure TfrmCompanyList.FormShow(Sender: TObject);
+begin
+   if checkClassExistence(Application, 'TfrmCompany') = False then
+   begin
+      Application.CreateForm(TfrmCompany, frmCompany);
+   end;
+end;
+
+procedure TfrmCompanyList.bbFirstClick(Sender: TObject);
+begin
+  dmDrawingLoc.taCompany.First;
+end;
+
+procedure TfrmCompanyList.bbAddClick(Sender: TObject);
+begin
+  dmDrawingLoc.taCompany.Insert;
+  frmCompany.ShowModal;
+end;
+
+procedure TfrmCompanyList.bbPreviousClick(Sender: TObject);
+begin
+  dmDrawingLoc.taCompany.Prior;
+end;
+
+procedure TfrmCompanyList.bbNextClick(Sender: TObject);
+begin
+  dmDrawingLoc.taCompany.Next;
+end;
+
+procedure TfrmCompanyList.bbLastClick(Sender: TObject);
+begin
+  dmDrawingLoc.taCompany.Last;
+end;
+
+procedure TfrmCompanyList.bbDeleteClick(Sender: TObject);
+begin
+  dmDrawingLoc.taCompany.Delete;
+end;
+
+procedure TfrmCompanyList.bbDetailsClick(Sender: TObject);
+begin
+  dmDrawingLoc.taCompany.Edit;
+  frmCompany.ShowModal;
+end;
+
+end.
