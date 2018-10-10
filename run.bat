@@ -1,0 +1,1 @@
+del c:\"Program Files"\"Common Files"\"Borland Shared"\BDE\*.cfg
