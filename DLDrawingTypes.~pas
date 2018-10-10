@@ -1,0 +1,37 @@
+unit DLDrawingTypes;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ExtCtrls, DBCtrls, Grids, DBGrids, StdCtrls, Buttons, ToolWin, ComCtrls;
+
+type
+  TfrmDrawingTypes = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    DBNavigator1: TDBNavigator;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    bbExit: TBitBtn;
+    Panel5: TPanel;
+    ToolBar1: TToolBar;
+    procedure bbExitClick(Sender: TObject);
+  end;
+
+var
+  frmDrawingTypes: TfrmDrawingTypes;
+
+implementation
+
+uses DLDrawingLocData;
+
+{$R *.DFM}
+
+procedure TfrmDrawingTypes.bbExitClick(Sender: TObject);
+begin
+   Close;
+end;
+
+end.

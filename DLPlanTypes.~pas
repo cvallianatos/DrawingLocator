@@ -1,0 +1,37 @@
+unit DLPlanTypes;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Grids, DBGrids, ExtCtrls, DBCtrls, StdCtrls, Buttons, ToolWin, ComCtrls;
+
+type
+  TfrmPlanTypes = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    DBNavigator1: TDBNavigator;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    bbExit: TBitBtn;
+    Panel5: TPanel;
+    ToolBar1: TToolBar;
+    procedure bbExitClick(Sender: TObject);
+  end;
+
+var
+  frmPlanTypes: TfrmPlanTypes;
+
+implementation
+
+uses DLDrawingLocData;
+
+{$R *.DFM}
+
+procedure TfrmPlanTypes.bbExitClick(Sender: TObject);
+begin
+   Close;
+end;
+
+end.

@@ -1,0 +1,106 @@
+object frmPlanTypes: TfrmPlanTypes
+  Left = 190
+  Top = 154
+  Width = 782
+  Height = 480
+  Caption = 'Plan Types'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 16
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 774
+    Height = 41
+    Align = alTop
+    TabOrder = 0
+    object DBNavigator1: TDBNavigator
+      Left = 1
+      Top = 1
+      Width = 772
+      Height = 39
+      DataSource = dmDrawingLoc.dsPlanType
+      Align = alClient
+      TabOrder = 0
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 41
+    Width = 774
+    Height = 351
+    Align = alClient
+    TabOrder = 1
+    object DBGrid1: TDBGrid
+      Left = 1
+      Top = 1
+      Width = 772
+      Height = 349
+      Align = alClient
+      DataSource = dmDrawingLoc.dsPlanType
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'PlanDescr'
+          Title.Caption = 'Plan Type'
+          Visible = True
+        end>
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 392
+    Width = 774
+    Height = 61
+    Align = alBottom
+    TabOrder = 2
+    object Panel4: TPanel
+      Left = 632
+      Top = 1
+      Width = 141
+      Height = 59
+      Align = alRight
+      TabOrder = 0
+      object bbExit: TBitBtn
+        Left = 24
+        Top = 8
+        Width = 75
+        Height = 41
+        Caption = 'Exit'
+        TabOrder = 0
+        OnClick = bbExitClick
+        Kind = bkCancel
+      end
+    end
+    object Panel5: TPanel
+      Left = 1
+      Top = 1
+      Width = 631
+      Height = 59
+      Align = alClient
+      TabOrder = 1
+      object ToolBar1: TToolBar
+        Left = 1
+        Top = 1
+        Width = 629
+        Height = 57
+        Align = alClient
+        ButtonHeight = 31
+        Caption = 'ToolBar1'
+        TabOrder = 0
+      end
+    end
+  end
+end

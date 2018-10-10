@@ -1,0 +1,38 @@
+unit DLRecipients;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Mask, DBCtrls, Grids, DBGrids, ExtCtrls, Buttons, ToolWin,
+  ComCtrls;
+
+type
+  TfrmRecipients = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    Panel3: TPanel;
+    DBNavigator1: TDBNavigator;
+    DBEdit1: TDBEdit;
+    Label1: TLabel;
+    Panel4: TPanel;
+    bbExit: TBitBtn;
+    procedure bbExitClick(Sender: TObject);
+  end;
+
+var
+  frmRecipients: TfrmRecipients;
+
+implementation
+
+uses DLDrawingLocData;
+
+{$R *.DFM}
+
+procedure TfrmRecipients.bbExitClick(Sender: TObject);
+begin
+   Close;
+end;
+
+end.
